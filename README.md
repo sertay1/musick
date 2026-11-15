@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center">Musick</h1>
 
 <div align="center">
@@ -13,6 +12,26 @@
 
 ---
 
+## 📸 Screenshots / Ekran Görüntüleri
+
+### Stream Desk / Yayın Masası
+
+![Stream Desk · Yayın Masası](docs/screenshots/yayin-masasi.png)
+
+### Auto Queue / Otomatik Kuyruk
+
+![Auto Queue · Otomatik Kuyruk](docs/screenshots/otomatik-kuyruk.png)
+
+### Commands & Permissions / Komutlar ve Yetkiler
+
+![Commands & Permissions · Komutlar ve Yetkiler](docs/screenshots/komutlar.png)
+
+### OBS Overlays / OBS Katmanları
+
+![OBS Overlays · OBS Katmanları](docs/screenshots/obs-katmanlari.png)
+
+---
+
 ## (EN) Setup and Usage Guide
 
 ### ✨ Features
@@ -22,11 +41,6 @@
 - **Library and automatic queue:** Import playlists and keep music playing from your selected pool when requests run out.
 - **Chat controls:** Customize command aliases, role permissions, cooldowns, and bot replies.
 - **OBS overlays:** Show the current track and upcoming songs using customizable layouts.
-
-<div align="center">
-  <img src="docs/screenshots/yayin-masasi.png" alt="Musick broadcast desk with playback, song queue, and request feed" width="1000">
-  <p><em>Broadcast desk preview with sample requests</em></p>
-</div>
 
 ### ⚙️ Step 1 — Before you start
 
@@ -54,11 +68,6 @@ In **Settings → Accounts**, enter your credentials under the corresponding pla
 2. Use **Commands & Permissions** to set aliases, permissions, cooldowns, and reply templates.
 3. Pick a design in **OBS Overlays**. Copy the URL from the OBS setup area, paste it into a **Browser** source in OBS, and use the dimensions shown in Musick.
 
-<div align="center">
-  <img src="docs/screenshots/obs-kaset.png" alt="Cassette-style OBS music overlay" width="312">
-  <p><em>Cassette overlay preview</em></p>
-</div>
-
 ### 🔗 Contact
 
 **SertAy** · [Linktree](https://linktr.ee/yamanx) · [Report an issue](https://github.com/sertay1/musick/issues)
@@ -74,11 +83,6 @@ In **Settings → Accounts**, enter your credentials under the corresponding pla
 - **Kütüphane ve otomatik kuyruk:** Listeleri içe aktar. İstekler bittiğinde seçtiğin havuzdan müzik çalmaya devam et.
 - **Sohbet komutları:** Takma adları, rol izinlerini, bekleme sürelerini ve bot yanıtlarını düzenle.
 - **OBS katmanları:** Çalan şarkıyı ve sıradaki parçaları özelleştirilebilir tasarımlarla yayına ekle.
-
-<div align="center">
-  <img src="docs/screenshots/yayin-masasi.png" alt="Musick yayın masası, oynatıcı, çalma sırası ve istek akışı" width="1000">
-  <p><em>Örnek isteklerle yayın masası önizlemesi</em></p>
-</div>
 
 ### ⚙️ 1. Aşama — Başlamadan önce
 
@@ -106,11 +110,6 @@ Musick Windows x64 üzerinde çalışır. Spotify'dan şarkı çalacaksan masaü
 2. **Komutlar & Yetkiler** ekranında takma adları, izinleri, bekleme sürelerini ve yanıt şablonlarını düzenle.
 3. **OBS Overlay'leri** bölümünde bir tasarım seç. **OBS'ye Ekle** alanındaki adresi OBS'de bir **Tarayıcı** kaynağına yapıştır ve gösterilen ölçüleri gir.
 
-<div align="center">
-  <img src="docs/screenshots/obs-kaset.png" alt="Kaset biçiminde OBS müzik katmanı" width="312">
-  <p><em>Kaset katmanı önizlemesi</em></p>
-</div>
-
 ### 🔗 İletişim
 
 **SertAy** · [Linktree](https://linktr.ee/yamanx) · [Sorun bildir](https://github.com/sertay1/musick/issues)
@@ -120,75 +119,6 @@ Musick Windows x64 üzerinde çalışır. Spotify'dan şarkı çalacaksan masaü
 ## 🛠️ Development / Geliştirme
 
 Windows · .NET 9 SDK · Node.js · WebView2 Runtime
-=======
-<p align="center">
-  <img src="src/MusicBot.Web/clientapp/public/musick-logo-horizontal.png" alt="Musick" width="260">
-</p>
-
-# Musick
-
-**by SertAy · v1.0.0 · Windows x64**
-
-**TR** · Musick, Kick yayınlarında sohbetten Spotify ve YouTube şarkı istekleri almanı, çalma sırasını yönetmeni ve çalan şarkıyı OBS'de göstermeni sağlayan bir masaüstü uygulaması.
-
-**EN** · Musick is a desktop app for Kick streamers. Take Spotify and YouTube song requests from chat, manage the playback queue, and show what's playing in OBS.
-
-[İndir / Download](https://github.com/sertay1/musick/releases) · [Türkçe rehber](#türkçe-kurulum-ve-kullanım) · [English guide](#english-setup-and-usage) · [Sorun bildir / Report an issue](https://github.com/sertay1/musick/issues)
-
-## Türkçe kurulum ve kullanım
-
-### Özellikler
-
-- Kick sohbetinden `!ekle` ile şarkı isteği, `!atla` ile sıradaki şarkıya geçme. Komut takma adları, rol izinleri, bekleme süreleri ve bot yanıtları uygulamadan düzenlenebilir.
-- Spotify masaüstü oynatıcısıyla eşitleme ve YouTube müzik istekleri için gömülü oynatıcı.
-- Yayın masasında çalma sırası, canlı istek akışı ve etkinlik günlüğü. Kütüphaneden liste aktarımı ve sıra boşaldığında otomatik kuyruk.
-- OBS için özelleştirilebilir şarkı katmanları. Türkçe ve İngilizce arayüz, açık ve koyu tema.
-
-### 1. Musick'i kur
-
-[Releases](https://github.com/sertay1/musick/releases) sayfasından Windows kurulum EXE'sini indirip çalıştır. .NET çalışma zamanı pakete dahildir. WebView2 eksikse kurulum sırasında indirilir. Güncelleme yapıyorsan önce Musick'i sistem tepsisinden tamamen kapat.
-
-### 2. Hesapları bağla
-
-- **Kick** · **Ayarlar → Hesaplar** bölümüne, komutların çalışacağı kanalın adını yaz. Sohbete bot hesabının cevap vermesini istiyorsan bağlantıyı o hesapla kur. Geliştirici uygulaması bilgileri için [Kick geliştirici ayarlarını](https://kick.com/settings/developer) aç.
-- **Spotify** · Hesabını Ayarlar'dan bağla ve Spotify masaüstü uygulamasını aç. Oynatma ve ses kontrolü Spotify üzerinden yürür.
-- **YouTube** · Halka açık şarkıları çalmak için hesap bağlantısı gerekmez. Kendi listelerini ve beğenilerini eşitlemek için [YouTube bağlantı rehberini](docs/YOUTUBE-TARAYICI.md) izle.
-
-### 3. Şarkı isteği al ve OBS'ye ekle
-
-1. Kick sohbetine `!ekle şarkı adı` yaz ve isteğin **Yayın masası** ekranında göründüğünü kontrol et.
-2. **Komutlar & Yetkiler** bölümünden kimlerin şarkı isteyebileceğini, şarkı atlayabileceğini ve botun ne yazacağını ayarla.
-3. **OBS Overlay'leri** bölümünde bir tasarım seç. **OBS'ye Ekle** alanındaki bağlantıyı kopyala ve OBS'de bir **Tarayıcı** kaynağına yapıştır.
-
-## English setup and usage
-
-### Features
-
-- Kick chat requests and skip commands with configurable aliases, role permissions, cooldowns, and bot replies.
-- Spotify desktop playback controls and an embedded player for YouTube music requests.
-- Live request feed, activity log, playlist imports, and an automatic queue that fills in when requests run out.
-- Customizable OBS music overlays, Turkish and English interface, and light and dark themes.
-
-### 1. Install Musick
-
-Download the Windows installer from [Releases](https://github.com/sertay1/musick/releases) and run it. The .NET runtime is bundled. The installer downloads WebView2 if needed. If upgrading, quit Musick from the system tray first.
-
-### 2. Connect your accounts
-
-- **Kick** · In **Settings → Accounts**, enter the channel where commands should run. Connect the account you want to send chat replies. Developer credentials are available in [Kick developer settings](https://kick.com/settings/developer).
-- **Spotify** · Connect your account in Settings and open the Spotify desktop app.
-- **YouTube** · Public music playback works without signing in. To sync your own playlists and likes, follow the [YouTube setup guide in Turkish](docs/YOUTUBE-TARAYICI.md).
-
-### 3. Take requests and add an OBS overlay
-
-1. Send `!ekle song name` in your Kick chat and check the request on the broadcast dashboard.
-2. Open the commands and permissions screen to configure who can request or skip songs and what the bot replies.
-3. Pick a design in **OBS Overlays**, copy its URL, and paste it into an OBS **Browser** source.
-
-## Geliştirme / Development
-
-Windows, .NET 9 SDK, Node.js ve WebView2 Runtime gerekir. Musick; WPF, ASP.NET Core, React ve SQLite kullanır.
->>>>>>> 627ac7b69e8348a81db28b94ad57780b9ba18370
 
 ```powershell
 cd src/MusicBot.Web/clientapp
@@ -198,26 +128,13 @@ cd ../../..
 dotnet run --project src/MusicBot.Desktop
 ```
 
-<<<<<<< HEAD
-=======
-Test ve Windows kurulum paketi / Tests and Windows installer:
-
->>>>>>> 627ac7b69e8348a81db28b94ad57780b9ba18370
 ```powershell
 dotnet test src/MusicBot.Tests --filter "FullyQualifiedName!~LiveTests"
 powershell -ExecutionPolicy Bypass -File scripts/Package-Release.ps1 -Version 1.0.0
 ```
 
-<<<<<<< HEAD
 ## 📄 License / Lisans
 
 [LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) covers contributions that SertAy is authorized to license. Rights to inherited code remain with their respective holders. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for third-party licenses.
 
 SertAy'ın lisanslama yetkisine sahip olduğu Musick katkılarının koşulları [LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) dosyasında yer alır. Devralınan kodun hakları ilgili hak sahiplerine aittir. Üçüncü taraf lisansları [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasındadır.
-=======
-## Lisans / License
-
-SertAy'ın lisanslama yetkisine sahip olduğu Musick katkılarının koşulları [LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) dosyasında yer alır. Devralınan kodun hakları ilgili hak sahiplerine aittir. Üçüncü taraf lisansları [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasındadır.
-
-[LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) covers contributions that SertAy is authorized to license. Rights to inherited code remain with their respective holders. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for third-party licenses.
->>>>>>> 627ac7b69e8348a81db28b94ad57780b9ba18370
