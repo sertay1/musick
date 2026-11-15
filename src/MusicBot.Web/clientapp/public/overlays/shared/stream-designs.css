@@ -1,0 +1,75 @@
+/* Compact: adapted from NowPlaying/public/overlay.html, MIT © 2026 Josua.
+   Musick modifications: existing markup, requester, preferences and queue layouts.
+   License: NowPlaying-LICENSE.txt. Other styles are Musick's own CSS. */
+html[data-theme]:is([data-design="compact"],[data-design="poster"],[data-design="ribbon"]) body{font-family:system-ui,"Segoe UI",sans-serif}
+html[data-theme]:is([data-design="compact"],[data-design="poster"],[data-design="ribbon"]) body :is(.now-playing,.npv-card,.player-shell,.pv-shell,.queue-container,.qv-container){border:0!important;background:var(--ov-bg)!important;overflow:hidden}
+html[data-theme][data-design="compact"] body .now-playing{width:min(520px,100vw);min-height:132px;padding:14px 16px 12px;gap:14px}
+html[data-theme][data-design="compact"] body :is(.np-vinyl,.pl-vinyl){width:72px;height:72px;border-radius:9px!important}
+html[data-theme][data-design="compact"] body :is(.np-title,.npv-title,.pl-title,.pv-title){font-size:17px!important;font-weight:700!important;letter-spacing:0;line-height:1.3}
+html[data-theme][data-design="compact"] body :is(.np-artist,.npv-artist,.pl-artist,.pv-artist){font-size:13px;letter-spacing:0;font-weight:400;opacity:.8}
+html[data-theme][data-design="compact"] body :is(.np-requested,.npv-requested,.pl-requested,.pv-requested){font-size:10px;font-weight:400;color:var(--ov-text-dim)!important;margin-top:4px}
+html[data-theme][data-design="compact"] body :is(.np-progress,.npv-progress,.pl-progress){margin-top:10px}
+html[data-theme][data-design="compact"] body :is(.np-time-row,.npv-time-row,.pl-time-row,.pv-time-row){font:11px system-ui,sans-serif;opacity:.7;margin-top:5px;font-variant-numeric:tabular-nums}
+html[data-theme][data-design="compact"] body .npv-cover-wrap{padding:20px 20px 0;justify-content:flex-start}
+html[data-theme][data-design="compact"] body .npv-vinyl{width:96px;height:96px}
+html[data-theme][data-design="compact"] body .npv-info{padding:16px 20px 20px}
+html[data-theme][data-design="compact"] body .pv-np{display:grid;grid-template-columns:64px minmax(0,1fr);gap:5px 14px;padding:18px;text-align:left}
+html[data-theme][data-design="compact"] body .pv-cover-wrap{grid-column:1;grid-row:1/6;margin:0;align-self:center}
+html[data-theme][data-design="compact"] body .pv-vinyl{width:64px;height:64px}
+html[data-theme][data-design="compact"] body :is(.pv-title,.pv-artist,.pv-requested,.pv-status,.pv-bar-track,.pv-time-row){grid-column:2;text-align:left;justify-content:flex-start}
+html[data-theme][data-design="compact"] body .np-panel{flex-direction:row;align-items:center;padding:20px;gap:14px}
+html[data-theme][data-design="compact"] body .left-column{width:54%}
+/* Album card: panoramic art on the horizontal source, full sleeve on the vertical. */
+html[data-theme][data-design="poster"] body .now-playing{width:min(520px,100vw);height:186px;padding:0;display:block;position:relative}
+html[data-theme][data-design="poster"] body .np-cover-container{position:absolute;inset:0;padding:0}
+html[data-theme][data-design="poster"] body .np-vinyl{width:100%;height:100%;border-radius:0!important}
+html[data-theme][data-design="poster"] body .np-vinyl img{object-position:center 42%}
+html[data-theme][data-design="poster"] body .np-info{position:absolute;inset:auto 0 0;padding:32px 20px 14px;background:linear-gradient(transparent,rgba(0,0,0,.88) 38%);gap:4px;text-align:center}
+html[data-theme][data-design="poster"] body :is(.np-title,.np-artist,.np-requested,.np-time-row){color:#fff!important;justify-content:center}
+html[data-theme][data-design="poster"] body .np-time-row{justify-content:space-between}
+html[data-theme][data-design="poster"] body :is(.np-title,.npv-title,.pl-title,.pv-title){font-size:21px!important;letter-spacing:-.025em;font-weight:650!important}
+html[data-theme][data-design="poster"] body .np-progress{margin-top:8px}
+html[data-theme][data-design="poster"] body .npv-cover-wrap{padding:0}
+html[data-theme][data-design="poster"] body .npv-vinyl{width:100%;height:260px;max-height:none;border-radius:0!important;aspect-ratio:auto}
+html[data-theme][data-design="poster"] body :is(.npv-info,.pl-info){text-align:center}
+html[data-theme][data-design="poster"] body :is(.npv-requested,.pl-requested){justify-content:center}
+html[data-theme][data-design="poster"] body .np-panel{padding:0;gap:0;align-items:stretch;justify-content:flex-start}
+html[data-theme][data-design="poster"] body .pl-cover-wrap{width:100%}
+html[data-theme][data-design="poster"] body .pl-vinyl{width:100%;height:210px;border-radius:0!important}
+html[data-theme][data-design="poster"] body .pl-info{padding:16px 20px}
+html[data-theme][data-design="poster"] body .pv-np{padding:0}
+html[data-theme][data-design="poster"] body .pv-cover-wrap{margin:0}
+html[data-theme][data-design="poster"] body .pv-vinyl{width:100%;height:220px;border-radius:0!important}
+html[data-theme][data-design="poster"] body :is(.pv-status,.pv-title,.pv-artist,.pv-requested,.pv-bar-track,.pv-time-row){margin-left:20px;margin-right:20px}
+html[data-theme][data-design="poster"] body .pv-status{margin-top:14px}
+html[data-theme][data-design="poster"] body .pv-time-row{margin-bottom:16px}
+html[data-theme][data-design="poster"][data-artwork="off"] body .now-playing{height:auto;min-height:130px}
+html[data-theme][data-design="poster"][data-artwork="off"] body .np-info{position:relative;background:none}
+html[data-theme][data-design="poster"][data-artwork="off"] body :is(.np-title,.np-artist,.np-requested,.np-time-row){color:var(--ov-text)!important}
+/* Slim strip: cover plus one line of metadata, progress along the lower edge. */
+html[data-theme][data-design="ribbon"] body .now-playing{position:relative;width:min(520px,100vw);min-height:66px;padding:12px 18px;gap:12px}
+html[data-theme][data-design="ribbon"] body .np-vinyl{width:32px;height:32px;border-radius:4px!important}
+html[data-theme][data-design="ribbon"] body .np-info{display:flex;flex-direction:row;align-items:center;gap:10px;position:static;min-width:0}
+html[data-theme][data-design="ribbon"] body .np-scroll-wrap{min-width:0;max-width:60%;flex:1}
+html[data-theme][data-design="ribbon"] body .np-scroll-wrap:has(.np-artist){flex:.7}
+html[data-theme][data-design="ribbon"] body .np-title{font-size:14px!important;font-weight:600!important;letter-spacing:0;line-height:1.4}
+html[data-theme][data-design="ribbon"] body .np-artist{font-size:12px;letter-spacing:0}
+html[data-theme][data-design="ribbon"] body .np-requested{position:absolute;top:76px;left:18px;font-size:10px;color:var(--ov-text-dim)!important}
+html[data-theme][data-design="ribbon"] body .now-playing:has(.np-requested:not(.hidden)){margin-bottom:30px;overflow:visible}
+html[data-theme][data-design="ribbon"] body .np-progress{position:absolute;bottom:0;left:18px;right:18px;margin:0;order:4}
+html[data-theme][data-design="ribbon"] body .np-time-row{display:none}
+html[data-theme][data-design="ribbon"] body :is(.np-bar-track,.npv-bar-track,.pl-bar-track,.pv-bar-track){height:2px}
+html[data-theme][data-design="ribbon"] body :is(.npv-content,.pv-np){display:flex;flex-direction:column;padding:16px;gap:8px;align-items:flex-start}
+html[data-theme][data-design="ribbon"] body :is(.npv-cover-wrap,.pv-cover-wrap){padding:0;margin:0}
+html[data-theme][data-design="ribbon"] body :is(.npv-vinyl,.pv-vinyl){width:36px;height:36px;border-radius:4px!important}
+html[data-theme][data-design="ribbon"] body .npv-info{padding:0;width:100%}
+html[data-theme][data-design="ribbon"] body :is(.npv-title,.pv-title,.pl-title){font-size:15px!important;letter-spacing:0;text-align:left}
+html[data-theme][data-design="ribbon"] body :is(.pv-artist,.pv-requested,.pv-status){text-align:left;justify-content:flex-start}
+html[data-theme][data-design="ribbon"] body :is(.pv-bar-track,.pv-time-row){width:100%}
+html[data-theme][data-design="ribbon"] body .np-panel{padding:18px;gap:12px;flex-direction:row;align-items:center}
+html[data-theme][data-design="ribbon"] body .pl-vinyl{width:40px;height:40px}
+html[data-theme][data-design="ribbon"] body .left-column{width:55%}
+html[data-theme][data-design="ribbon"] body :is(.queue-item,.qv-row,.qp-row,.pv-row){padding:8px 12px;gap:8px}
+html[data-theme][data-design="ribbon"] body :is(.queue-item-cover,.qv-cover,.qp-cover,.pv-item-cover){width:26px;height:26px;border-radius:3px}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"])[data-artwork="off"] body .pv-np{display:flex;flex-direction:column}
+@media(max-width:620px){html[data-theme][data-design="poster"] body .pl-vinyl{height:160px}}

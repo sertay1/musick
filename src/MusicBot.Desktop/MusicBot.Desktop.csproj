@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MusicBot.Desktop.Program</StartupObject>
+    <AssemblyName>MusicBot</AssemblyName>
+    <AssemblyTitle>Musick</AssemblyTitle>
+    <Product>Musick</Product>
+    <Authors>SertAy</Authors>
+    <Company>SertAy</Company>
+    <Description>Musick — by SertAy</Description>
+    <Version>1.0.0</Version>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\THIRD-PARTY-NOTICES.md" Link="THIRD-PARTY-NOTICES.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\docs\licenses\*" Link="docs\licenses\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Resource Include="Resources\icon.ico" />
+    <None Update="Resources\icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MusicBot.Web\MusicBot.Web.csproj" />
+    <ProjectReference Include="..\MusicBot.Core\MusicBot.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Velopack" Version="0.0.1298" />
+    <PackageReference Include="Markdig" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.*" />
+    <PackageReference Include="Serilog" Version="4.*" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.*" />
+  </ItemGroup>
+
+  <!-- Always sync wwwroot from MusicBot.Web into Desktop output folder -->
+  <Target Name="CopyWebRootToDesktop" AfterTargets="Build">
+    <ItemGroup>
+      <WebAssets Include="$(MSBuildProjectDirectory)\..\MusicBot.Web\wwwroot\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(WebAssets)" DestinationFolder="$(TargetDir)wwwroot\%(RecursiveDir)" SkipUnchangedFiles="false" />
+  </Target>
+
+  <!-- Referenced Web SDK assets are not automatically published with this WPF entry point. -->
+  <Target Name="CopyWebRootToPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <PublishedWebAssets Include="$(MSBuildProjectDirectory)\..\MusicBot.Web\wwwroot\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PublishedWebAssets)" DestinationFolder="$(PublishDir)wwwroot\%(RecursiveDir)" SkipUnchangedFiles="false" />
+    <Error Condition="!Exists('$(PublishDir)wwwroot\index.html')" Text="Web arayüzü bulunamadı. Önce clientapp dizininde npm run build çalıştırın." />
+  </Target>
+
+</Project>

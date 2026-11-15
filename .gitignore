@@ -1,0 +1,70 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio
+.vs/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+## NuGet
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+## Node (frontend)
+node_modules/
+dist/
+
+## React build output (generado por NUKE/Vite, no editar directamente)
+src/MusicBot.Web/wwwroot/
+
+## IDE
+.idea/
+
+## SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+## Music library (downloaded MP3s — large binary files, not tracked)
+**/music-library/
+
+## Logs
+**/logs/
+
+## Misc
+*.swp
+*~
+.env
+/publish
+/artifacts
+/work/
+/outputs/
+.nuke/temp/
+
+# Environment-specific settings
+appsettings.Development.json
+appsettings.user.json
+*.tsbuildinfo
+*.pem
+*.pfx
+*.key
+.claude/
+UpgradeLog.htm
+
+# Publisher Google desktop OAuth client; provision locally for release builds.
+google-oauth.desktop.json
+client_secret_*.json
+
+# Local Spotify backoff and repeat-mode recovery journals
+spotify-cooldown-*.txt
+spotify-cooldown-*.txt.repeat

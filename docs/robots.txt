@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sertay1.github.io/musick/sitemap.xml

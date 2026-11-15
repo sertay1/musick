@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import vm from 'node:vm';
+const properties=new Map(), root={dataset:{},style:{setProperty:(k,v)=>properties.set(k,String(v)),removeProperty:k=>properties.delete(k)}};
+let style;
+const context=vm.createContext({URLSearchParams,location:{search:'?preview=1&design=classic',origin:'http://127.0.0.1:3050'},parent:{},window:{addEventListener:()=>{}},document:{documentElement:root,createElement:()=>style={textContent:''},head:{appendChild:()=>{}}}});
+vm.runInContext(await readFile(new URL('../src/MusicBot.Web/clientapp/public/overlays/shared/theme.js',import.meta.url),'utf8'),context);
+const apply=context.window.applyMusickOverlayPreferences;
+apply({theme:'warm',neonEnabled:true,mode:'chroma',neonColor:'#aabbcc',glowStrength:.8,neonSpeed:2,showShadow:false,backgroundOpacity:.3,scale:2,backgroundArt:true});
+assert.equal(root.dataset.theme,'warm');assert.equal(root.dataset.neonEnabled,'true');assert.equal(root.dataset.neonMode,'chroma');assert.equal(root.dataset.shadow,'off');assert.equal(root.dataset.albumBackground,'on');
+assert.equal(properties.get('--ov-background-alpha'),'0.3');assert.equal(properties.get('--ov-glow-strength'),'0.8');assert.equal(properties.get('--ov-neon-tone'),'#aabbcc');assert.match(style.textContent,/zoom:1/);
+apply({theme:'colorful',neonEnabled:null});assert.equal(root.dataset.theme,'glass');assert.equal(root.dataset.neonEnabled,'true');
+apply({theme:'light',neonEnabled:false,backgroundOpacity:0,neonSpeed:99});assert.equal(root.dataset.neonEnabled,'false');assert.equal(properties.get('--ov-background-alpha'),'0');assert.equal(properties.get('--ov-neon-speed'),'3');
+apply({design:'type'});assert.equal(root.dataset.design,'compact','Removed Typography links and preferences use Compact');
+console.log('Appearance preferences passed: independent neon, shadow, background, legacy neon and removed scale.');

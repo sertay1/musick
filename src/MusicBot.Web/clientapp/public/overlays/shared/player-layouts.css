@@ -1,0 +1,51 @@
+/* Cassette artwork remains visible behind the transparent reel window. */
+.cassette-reels{display:none;pointer-events:none}
+html[data-theme][data-design="cassette"] .vinyl-disc{background:var(--ov-bg2)!important;border:5px solid color-mix(in srgb,var(--ov-text-dim) 65%,var(--ov-bg));box-shadow:inset 0 0 0 2px #ffffff18}
+html[data-theme][data-design="cassette"] .vinyl-art{inset:0;width:100%;height:100%;opacity:.85;object-fit:cover;object-position:center;border-radius:3px!important}
+html[data-theme][data-design="cassette"] .vinyl-disc::before{inset:46% 10% 9%;border:1px solid #ffffff45;border-radius:30px;background:#00000025;box-shadow:inset 0 1px 4px #0005}
+html[data-theme][data-design="cassette"] .vinyl-disc::after{left:6%;right:6%;top:6%;background:color-mix(in srgb,var(--ov-bg) 88%,transparent);border-bottom:2px solid var(--ov-accent);padding:4px 6px;font-size:8px;letter-spacing:.12em}
+html[data-theme][data-design="cassette"] .cassette-reels{display:flex;position:absolute;inset:48% 13% 12%;align-items:center;justify-content:space-between;z-index:3}
+html[data-theme][data-design="cassette"] .cassette-reels>span{display:block;position:relative;width:31%;aspect-ratio:1;border-radius:50%;border:3px solid #171a1c;box-shadow:0 0 0 2px #ffffff30;background:radial-gradient(circle,#15191b 0 17%,transparent 18%),repeating-conic-gradient(#c2c7c8 0deg 18deg,#353b3f 18deg 60deg)}
+html[data-theme][data-design="cassette"][data-motion="on"] .cassette-reels>span{animation:musick-cassette-reel 3.5s linear infinite!important}
+html[data-theme][data-design="cassette"][data-motion="on"] .cassette-reels>span+span{animation-duration:4.5s!important}
+html[data-theme][data-design="cassette"] .vinyl-disc:not(.playing) .cassette-reels>span{animation-play-state:paused!important}
+@keyframes musick-cassette-reel{to{transform:rotate(360deg)}}
+
+/* Combined horizontal: each left panel has a bounded, centered artwork slot. */
+html[data-theme][data-design] body .player-main{min-height:0}
+html[data-theme][data-design] body .left-column{width:46%;flex:0 0 46%;min-width:0}
+html[data-theme][data-design] body .np-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 24px;gap:14px;min-width:0;min-height:0}
+html[data-theme][data-design] body .pl-cover-wrap{display:flex;justify-content:center;align-items:center;width:100%;max-width:100%;padding:0;flex:none;min-height:0}
+html[data-theme][data-design] body .pl-vinyl{width:144px;max-width:100%;height:auto;aspect-ratio:1;flex:none;margin:0}
+html[data-theme][data-design] body .pl-info{width:100%;min-width:0;flex:0 1 auto;text-align:center;padding:0;gap:6px}
+html[data-theme][data-design] body :is(.pl-label,.pl-requested){justify-content:center}
+html[data-theme][data-design] body .queue-panel{flex:1;min-width:0}
+html[data-theme][data-design="vinyl"] body .pl-vinyl{width:176px}
+html[data-theme][data-design="poster"] body .pl-vinyl{width:180px;border-radius:8px!important}
+html[data-theme][data-design="cassette"] body .pl-vinyl{width:240px;aspect-ratio:1.6}
+html[data-theme][data-design="broadcast"] body .pl-vinyl{width:120px;border-radius:0}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .np-panel{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-content:center}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pl-cover-wrap{width:72px}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pl-vinyl{width:72px}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pl-info{text-align:left}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body :is(.pl-label,.pl-requested){justify-content:flex-start}
+
+/* Combined vertical: centered sleeves; compact strips use a small, aligned thumbnail. */
+html[data-theme][data-design] body .pv-np{display:flex;flex-direction:column;align-items:stretch;padding:20px;gap:0;text-align:center;flex:none;min-width:0}
+html[data-theme][data-design] body .pv-cover-wrap{display:flex;justify-content:center;align-items:center;align-self:center;width:100%;max-width:100%;margin:0 0 14px;padding:0;flex:none}
+html[data-theme][data-design] body .pv-vinyl{width:166px;max-width:100%;height:auto;aspect-ratio:1;flex:none;margin:0}
+html[data-theme][data-design] body :is(.pv-status,.pv-title,.pv-artist,.pv-requested,.pv-bar-track,.pv-time-row){margin-left:0;margin-right:0;min-width:0;width:100%}
+html[data-theme][data-design] body :is(.pv-status,.pv-title,.pv-artist,.pv-requested){text-align:center;justify-content:center}
+html[data-theme][data-design="vinyl"] body .pv-vinyl{width:186px}
+html[data-theme][data-design="poster"] body .pv-vinyl{width:100%;aspect-ratio:1.8;border-radius:8px!important}
+html[data-theme][data-design="cassette"] body .pv-vinyl{width:248px;aspect-ratio:1.6}
+html[data-theme][data-design="broadcast"] body .pv-cover-wrap{width:auto;padding:10px;background:var(--ov-accent)}
+html[data-theme][data-design="broadcast"] body .pv-vinyl{width:112px;border-radius:0}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pv-np{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;row-gap:5px;padding:18px}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pv-cover-wrap{grid-column:1;grid-row:1/5;align-self:center;width:64px;margin:0}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body .pv-vinyl{width:64px}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body :is(.pv-status,.pv-title,.pv-artist,.pv-requested){grid-column:2;text-align:left;justify-content:flex-start}
+html[data-theme]:is([data-design="compact"],[data-design="ribbon"]) body :is(.pv-bar-track,.pv-time-row){grid-column:1/-1;width:100%}
+html[data-theme][data-design][data-artwork="off"] body .np-panel{display:flex}
+html[data-theme][data-design][data-artwork="off"] body .pv-np{display:flex}
+@media(max-width:700px){html[data-theme][data-design] body .player-main{flex-direction:column}html[data-theme][data-design] body .left-column{width:100%;flex:0 0 auto}html[data-theme][data-design] body .np-panel{padding:16px;gap:12px}html[data-theme][data-design] body .pl-vinyl{width:96px}html[data-theme][data-design="cassette"] body .pl-vinyl{width:160px}}

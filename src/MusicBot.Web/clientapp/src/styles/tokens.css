@@ -1,0 +1,30 @@
+/* One accent, two bundled Google font families, 4px rhythm. */
+:root, :root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #141615; --surface: #1b1e1c; --surface2: #242825; --surface3: #303631;
+  --border: #343a35; --border-light: #515c52;
+  --text: #f1f3ef; --text-main: var(--text); --text-dim: #b6bdb5; --text-muted: #9ba599;
+  --accent: #c3ed77; --accent-light: #d0f59b; --accent-hover: #d2f3a4;
+  --accent-dim: #c3ed7712; --on-accent: #1c2a0f;
+  --green: #91d8a3; --green-dim: #91d8a317;
+  --red: #ff9d96; --red-dim: #ff9d9614; --danger: var(--red);
+  --amber: #ebc477; --amber-dim: #ebc47714;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-title: "Manrope Variable", system-ui, sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --radius-sm: 6px; --radius: 10px; --radius-lg: 16px;
+  --shadow-sm: 0 2px 4px #00000012; --shadow: 0 8px 24px #00000024; --shadow-lg: 0 16px 64px #00000040;
+  --header-h: 72px; --transport-h: 96px; --sidebar-w: 226px;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f5f1; --surface: #ffffff; --surface2: #edefe8; --surface3: #e0e5da;
+  --border: #d7dcd1; --border-light: #b8c2af;
+  --text: #20271f; --text-dim: #525d4d; --text-muted: #626f5b;
+  --accent: #496d20; --accent-light: #3d6016; --accent-hover: #385a15;
+  --accent-dim: #5478290c; --on-accent: #ffffff;
+  --green: #29703d; --green-dim: #29703d0f;
+  --red: #b82f2c; --red-dim: #b82f2c0d; --amber: #8b6011; --amber-dim: #8b60110d;
+  --shadow-sm: 0 2px 4px #23311b08; --shadow: 0 8px 24px #23311b0c; --shadow-lg: 0 16px 64px #23311b18;
+}
