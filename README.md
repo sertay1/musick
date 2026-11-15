@@ -1,81 +1,140 @@
-# Musick — by SertAy
+<h1 align="center">Musick</h1>
 
-**Sürüm 1.0.0 · Windows x64**
+<div align="center">
+  <img src="src/MusicBot.Web/clientapp/public/musick-logo-horizontal.png" alt="Musick logo" width="240">
+  <p><strong>by SertAy · v1.0.0 · Windows x64</strong></p>
+  <p><strong>(EN)</strong> Take music requests from Kick chat, manage Spotify and YouTube playback, and show the current song in OBS.</p>
+  <p><strong>(TR)</strong> Kick sohbetinden şarkı istekleri al, Spotify ve YouTube çalma sırasını yönet, çalan şarkıyı OBS'de göster.</p>
+  <a href="#en-setup-and-usage-guide"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge" alt="English"></a>
+  <a href="#tr-kurulum-ve-kullanım-rehberi"><img src="https://img.shields.io/badge/Dil-T%C3%BCrk%C3%A7e-red?style=for-the-badge" alt="Türkçe"></a>
+  <a href="https://github.com/sertay1/musick/releases"><img src="https://img.shields.io/badge/Download-Windows-618635?style=for-the-badge" alt="Download for Windows"></a>
+</div>
 
-Kick yayınlarında sohbetten müzik isteği toplamak, çalma sırasını yönetmek ve OBS'ye şarkı bilgisi aktarmak için masaüstü uygulaması.
+---
 
-- Spotify masaüstü uygulamasıyla doğrudan oynatma ve durum eşitleme.
-- YouTube / YouTube Music bağlantıları, müzik kategorisi kontrolü ve gömülü YouTube oynatıcı.
-- Platformları ayrı ayrı etkinleştirme veya kapatma.
-- Spotify ve YouTube listelerini kütüphaneye aktarma, istek kuyruğu ve otomatik şarkı havuzu.
-- Kick komutları, rol izinleri, bekleme süreleri ve etkinlik günlüğü; komut ayarlarını JSON ile içe/dışa aktarma.
-- API bilgileri ve hesap oturumları hariç tercihleri JSON ile yedekleme / taşıma.
-- Özelleştirilebilir OBS katmanları; Türkçe / İngilizce ve açık / koyu arayüz.
-- GitHub Release üzerinden kullanıcı tarafından başlatılan güncelleme kontrolü.
+## (EN) Setup and Usage Guide
 
-## Kullanıcı kurulumu
+### ✨ Features
 
-GitHub **Releases** bölümünden Musick-Setup.exe dosyasını indirin. Bu kurulum dosyası tek başına dağıtılabilir; .NET çalışma zamanı pakete dahildir. WebView2 eksikse kurulum sırasında internetten yüklenir.
+- **Live requests:** Take requests from Kick chat and follow commands and queue changes in the activity log.
+- **Spotify and YouTube:** Control Spotify desktop playback and play YouTube music in Musick.
+- **Library and automatic queue:** Import playlists and keep music playing from your selected pool when requests run out.
+- **Chat controls:** Customize command aliases, role permissions, cooldowns, and bot replies.
+- **OBS overlays:** Show the current track and upcoming songs using customizable layouts.
 
-Eski Musick'i sistem tepsisinden tamamen kapatıp kurulumu çalıştırın. Spotify ve Kick hesaplarını Ayarlar'dan bağlayın. Halka açık YouTube oynatma hesap bağlantısı gerektirmez; hesap listeleri ve beğeni eşitlemesi için YouTube ile Bağlan düğmesini kullanın. Google istemcisi yayıncı tarafından bir kez hazırlanır; kullanıcıların Cloud projesi açması gerekmez. Hesaplar, oturumlar ve kişisel ayarlar kaynak koduna dahil değildir; başka bir bilgisayarda yeniden bağlantı kurulur.
+<div align="center">
+  <img src="docs/screenshots/yayin-masasi.png" alt="Musick broadcast desk with playback, song queue, and request feed" width="1000">
+  <p><em>Broadcast desk preview with sample requests</em></p>
+</div>
 
-YouTube tarayıcı bağlantısının Google Cloud gereksinimleri ve oynatma yedeği: [YouTube bağlantısı](docs/YOUTUBE-TARAYICI.md).
+### ⚙️ Step 1 — Before you start
 
-## Kaynak kodundan geliştirme
+Musick runs on Windows x64. Install and open Spotify desktop if you plan to play Spotify tracks. Have your Kick channel name and the account you want the bot to use ready.
 
-Gereksinimler: Windows, .NET 9 SDK, Node.js 20 veya üzeri ve WebView2 Runtime.
+### 💾 Step 2 — Install Musick
+
+1. Download the Windows setup EXE from [Releases](https://github.com/sertay1/musick/releases).
+2. If you're updating, quit Musick from the system tray first.
+3. Run the installer. It includes the .NET runtime and downloads WebView2 if needed.
+
+### 🔑 Step 3 — Get developer credentials
+
+- **Kick:** Create an app in [Kick Developer Settings](https://kick.com/settings/developer). Musick requests `user:read` for account details and `chat:write` for bot replies.
+- **Spotify:** If the app asks for developer credentials, create an app in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard). Use the redirect address shown in Musick's Spotify settings.
+- **YouTube:** Public music playback works without signing in. Playlist and like sync uses Google's sign-in flow. See the [YouTube setup guide](docs/YOUTUBE-TARAYICI.md) for account and distribution requirements.
+
+### 📝 Step 4 — Connect your accounts
+
+In **Settings → Accounts**, enter your credentials under the corresponding platform. Set the Kick channel to the chat that receives commands. Sign in with the account that should send replies. Connect Spotify there if you use it.
+
+### 🎵 Step 5 — Take requests and add an OBS overlay
+
+1. Send `!ekle song name` in Kick chat. The request appears in the broadcast desk. Use `!atla` to skip if you have permission.
+2. Use **Commands & Permissions** to set aliases, permissions, cooldowns, and reply templates.
+3. Pick a design in **OBS Overlays**. Copy the URL from the OBS setup area, paste it into a **Browser** source in OBS, and use the dimensions shown in Musick.
+
+<div align="center">
+  <img src="docs/screenshots/obs-kaset.png" alt="Cassette-style OBS music overlay" width="312">
+  <p><em>Cassette overlay preview</em></p>
+</div>
+
+### 🔗 Contact
+
+**SertAy** · [Linktree](https://linktr.ee/yamanx) · [Report an issue](https://github.com/sertay1/musick/issues)
+
+---
+
+## (TR) Kurulum ve Kullanım Rehberi
+
+### ✨ Özellikler
+
+- **Canlı istekler:** Kick sohbetinden şarkı isteği al. Komutları ve sıra değişikliklerini etkinlik günlüğünde takip et.
+- **Spotify ve YouTube:** Spotify masaüstü oynatıcısını kontrol et ve YouTube müziklerini Musick içinde çal.
+- **Kütüphane ve otomatik kuyruk:** Listeleri içe aktar. İstekler bittiğinde seçtiğin havuzdan müzik çalmaya devam et.
+- **Sohbet komutları:** Takma adları, rol izinlerini, bekleme sürelerini ve bot yanıtlarını düzenle.
+- **OBS katmanları:** Çalan şarkıyı ve sıradaki parçaları özelleştirilebilir tasarımlarla yayına ekle.
+
+<div align="center">
+  <img src="docs/screenshots/yayin-masasi.png" alt="Musick yayın masası, oynatıcı, çalma sırası ve istek akışı" width="1000">
+  <p><em>Örnek isteklerle yayın masası önizlemesi</em></p>
+</div>
+
+### ⚙️ 1. Aşama — Başlamadan önce
+
+Musick Windows x64 üzerinde çalışır. Spotify'dan şarkı çalacaksan masaüstü Spotify uygulamasını kur ve aç. Kick kanal adını ve botun sohbete yanıt vermesini istediğin hesabı hazırla.
+
+### 💾 2. Aşama — Musick'i kur
+
+1. [Releases](https://github.com/sertay1/musick/releases) bölümünden Windows kurulum EXE'sini indir.
+2. Güncelleme yapıyorsan önce Musick'i sistem tepsisinden tamamen kapat.
+3. Kurulumu çalıştır. .NET çalışma zamanı pakete dahildir. Gerektiğinde WebView2 indirilir.
+
+### 🔑 3. Aşama — Geliştirici bilgilerini al
+
+- **Kick:** [Kick geliştirici ayarları](https://kick.com/settings/developer) sayfasından bir uygulama oluştur. Musick, bağlı hesabın bilgilerini okumak için `user:read`, sohbet mesajı göndermek için `chat:write` iznini ister.
+- **Spotify:** Uygulama geliştirici bilgisi isterse [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) üzerinden bir uygulama oluştur. Musick'in Spotify ayarlarında gösterilen dönüş adresini kullan.
+- **YouTube:** Halka açık şarkıları çalmak için giriş gerekmez. Kendi listelerini ve beğenilerini eşitlemek, Google hesabıyla giriş gerektirir. Hesap ve dağıtım koşulları için [YouTube bağlantı rehberine](docs/YOUTUBE-TARAYICI.md) bak.
+
+### 📝 4. Aşama — Hesapları bağla
+
+**Ayarlar → Hesaplar** bölümünde geliştirici bilgilerini ilgili platforma gir. Kick kanal adına komutların çalışacağı sohbetin kanalını yaz. Botun cevap vermesini istediğin hesapla giriş yap. Spotify kullanacaksan hesabını aynı menüden bağla.
+
+### 🎵 5. Aşama — Şarkı isteği al ve OBS'ye ekle
+
+1. Kick sohbetine `!ekle şarkı adı` yaz. İsteği **Yayın masası** ekranından takip et. Yetkin varsa `!atla` ile sonraki şarkıya geç.
+2. **Komutlar & Yetkiler** ekranında takma adları, izinleri, bekleme sürelerini ve yanıt şablonlarını düzenle.
+3. **OBS Overlay'leri** bölümünde bir tasarım seç. **OBS'ye Ekle** alanındaki adresi OBS'de bir **Tarayıcı** kaynağına yapıştır ve gösterilen ölçüleri gir.
+
+<div align="center">
+  <img src="docs/screenshots/obs-kaset.png" alt="Kaset biçiminde OBS müzik katmanı" width="312">
+  <p><em>Kaset katmanı önizlemesi</em></p>
+</div>
+
+### 🔗 İletişim
+
+**SertAy** · [Linktree](https://linktr.ee/yamanx) · [Sorun bildir](https://github.com/sertay1/musick/issues)
+
+---
+
+## 🛠️ Development / Geliştirme
+
+Windows · .NET 9 SDK · Node.js · WebView2 Runtime
 
 ```powershell
 cd src/MusicBot.Web/clientapp
 npm ci
 npm run build
 cd ../../..
-dotnet restore MusicBot.sln
 dotnet run --project src/MusicBot.Desktop
 ```
-
-Arayüz kaynakları src/MusicBot.Web/clientapp/src/ dizinindedir. wwwroot/ derleme çıktısıdır; doğrudan düzenlenmez. Canlı yenileme için backend açıkken clientapp/ içinde npm start çalıştırılabilir.
-
-## Test ve kurulum paketi
 
 ```powershell
 dotnet test src/MusicBot.Tests --filter "FullyQualifiedName!~LiveTests"
 powershell -ExecutionPolicy Bypass -File scripts/Package-Release.ps1 -Version 1.0.0
 ```
 
-Paketleme betiği arayüzü derler, çevrimdışı testleri çalıştırır ve kendi .NET çalışma zamanını içeren Windows kurulumunu hazırlar. Canlı Kick bağlantısı testi standart kontrollerin dışındadır. Çıktılar artifacts/<sürüm>/<runtime>/ altına yazılır. Alternatif NUKE komutu:
+## 📄 License / Lisans
 
-```powershell
-build.cmd --target Pack --configuration Release --runtime win-x64 --version 1.0.0
-```
+[LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) covers contributions that SertAy is authorized to license. Rights to inherited code remain with their respective holders. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for third-party licenses.
 
-## Proje yapısı
-
-- MusicBot.Core: şarkı, kuyruk modelleri ve arayüzler.
-- MusicBot.Web: yerel API, Spotify/Kick servisleri, SQLite ve React arayüzü.
-- MusicBot.Desktop: WPF, WebView2, sistem tepsisi ve masaüstü başlangıcı.
-- MusicBot.Tests: otomatik kontroller.
-- design/console-concept/: mevcut uygulamaya uygulanmamış alternatif arayüz örneği. HTML dosyası tarayıcıda bağımsız açılır ve yalnızca örnek veriler kullanır.
-
-Masaüstü API adresi http://127.0.0.1:3050, kişisel veri dizini %AppData%/MusicBot'tur. Spotify şarkıları Spotify'dan, YouTube şarkıları gömülü oynatıcıdan çalınır; yerel dosya oynatıcısı da kodda mevcuttur.
-
-## Hesap yapılandırması
-
-Spotify ve Kick geliştirici uygulaması bilgileri Ayarlar'dan girilebilir. Geliştirme sırasında özel bilgiler için .NET user-secrets kullanılabilir:
-
-```powershell
-dotnet user-secrets set "Spotify:ClientId" "UYGULAMA_KIMLIGI" --project src/MusicBot.Web
-dotnet user-secrets set "Spotify:ClientSecret" "UYGULAMA_SIRRI" --project src/MusicBot.Web
-```
-
-Kişisel appsettings.user.json, çerezler, token'lar, veritabanı ve özel anahtarlar GitHub'a yüklenmez. Depodaki appsettings.json dağıtılabilir varsayılan yapılandırmadır.
-
-## Lisans ve atıf
-
-SertAy'ın lisanslama yetkisine sahip olduğu özgün Musick katkıları [SertAy lisansına](LICENSE-SERTAY.txt) tabidir. Lisans, atıf ve değişikliklerin belirtilmesini gerektirir ve ticari kullanımı sınırlar.
-
-Musick, [overabstractor/MusicBot](https://github.com/overabstractor/MusicBot) projesini temel alır. Devralınan kodun hakları ilgili hak sahiplerine aittir. Üçüncü taraf bileşenlerin lisansları [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasında belirtilir.
-
-GitHub hazırlığı için [yayımlama rehberine](docs/GITHUB-YAYINLAMA.md) bakın.
-
-Kullanılmayan bağımlılıklar kaldırıldı; npm denetiminde bilinen güvenlik bulgusu kalmadı; [yerel denetim notuna](docs/BAGIMLILIK-KONTROLU.md) bakın.
+SertAy'ın lisanslama yetkisine sahip olduğu Musick katkılarının koşulları [LICENSE-SERTAY.txt](LICENSE-SERTAY.txt) dosyasında yer alır. Devralınan kodun hakları ilgili hak sahiplerine aittir. Üçüncü taraf lisansları [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasındadır.
